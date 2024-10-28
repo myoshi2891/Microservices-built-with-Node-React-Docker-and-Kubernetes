@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const axios = require("axios");
 
 const app = express();
 app.use(bodyParser.json());
@@ -54,6 +55,7 @@ app.listen(4002, async () => {
 
 		for (let event of res.data) {
 			console.log("Processing event:", event.type);
+
 			handleEvent(event.type, event.data);
 		}
 	} catch (error) {
