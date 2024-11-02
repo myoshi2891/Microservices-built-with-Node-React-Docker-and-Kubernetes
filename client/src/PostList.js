@@ -7,7 +7,7 @@ function PostList() {
 	const [posts, setPosts] = useState({});
 	const fetchPosts = async () => {
 		try {
-			const res = await axios.get("http://post.com/posts");
+			const res = await axios.get("http://posts.com/posts");
 			setPosts(res.data);
 		} catch (error) {
 			setPosts([]);
@@ -17,7 +17,7 @@ function PostList() {
 	useEffect(() => {
 		fetchPosts();
 	}, []);
-``;
+
 	const renderedPosts = Object.values(posts).map((post) => {
 		return (
 			<div
