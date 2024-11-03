@@ -9,6 +9,6 @@ export const errorHandler = (
 	console.log("Somthing went wrong", err);
 
 	res.status(400).send({
-		message: "Somthing went wrong",
+		message: err.message,
 	});
 };
