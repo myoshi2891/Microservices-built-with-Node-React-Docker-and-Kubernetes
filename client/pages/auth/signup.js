@@ -42,7 +42,9 @@ const Signup = () => {
 				/>
 			</div>
 			{errors}
-			<button className="btn btn-primary">Sign Up</button>
+			<div>
+				<button className="mt-2 btn btn-primary">Sign Up</button>
+			</div>
 		</form>
 	);
 };
