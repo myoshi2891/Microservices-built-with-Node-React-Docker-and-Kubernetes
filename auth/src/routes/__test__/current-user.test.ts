@@ -2,7 +2,7 @@ import request from "supertest";
 import { app } from "../../app";
 
 it("responds with details about the current user", async () => {
-	await request(app)
+	const authResponse = await request(app)
 		.post("/api/users/signup")
 		.send({
 			email: "user@example.com",
@@ -10,10 +10,17 @@ it("responds with details about the current user", async () => {
 		})
 		.expect(201);
 
+	const cookie = authResponse.get("Set-Cookie");
+
+	if (!cookie) {
+		throw new Error("Cookie not set after signup");
+	}
+
 	const response = await request(app)
 		.get("/api/users/currentuser")
+		.set("Cookie", cookie)
 		.send()
 		.expect(200);
 
-	console.log(response.body);
+	expect(response.body.currentUser.email).toEqual("user@example.com");
 });
