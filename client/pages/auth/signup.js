@@ -1,9 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import useRequest from "../../hooks/useRequest";
 
 const Signup = () => {
 	const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 
 	const onSubmit = async (event) => {
@@ -40,16 +41,8 @@ const Signup = () => {
 					className="form-control"
 				/>
 			</div>
-			{errors.length > 0 && (
-				<div className="alert alert-danger">
-					<h4>Oooops....</h4>
-					<ul className="my-0">
-						{errors.map((err) => (
-							<li key={err.message}>{err.message}</li>
-						))}
-					</ul>
-				</div>
-			)}{" "}
+			{/* {errors.length > 0 && (
+			)} */}
 			<button className="btn btn-primary">Sign Up</button>
 		</form>
 	);
