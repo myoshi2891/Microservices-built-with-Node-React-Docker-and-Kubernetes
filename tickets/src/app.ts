@@ -3,7 +3,11 @@ import "express-async-errors";
 import { json } from "body-parser";
 import mongoose from "mongoose";
 import cookieSession from "cookie-session";
-import { errorHandler, NotFoundError } from "@myoshizumitickets/common";
+import {
+	errorHandler,
+	NotFoundError,
+	currentUser,
+} from "@myoshizumitickets/common";
 import { createTicketRouter } from "./routes/new";
 
 const app = express();
@@ -16,6 +20,7 @@ app.use(
 	})
 );
 
+app.use(currentUser);
 app.use(createTicketRouter);
 
 app.all("*", async (req, res) => {
