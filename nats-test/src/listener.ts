@@ -10,14 +10,17 @@ const stan = nats.connect("ticketing", randomBytes(4).toString("hex"), {
 stan.on("connect", () => {
 	console.log("Listener connected to NATS");
 
-	const subscription = stan.subscribe("ticket:created");
+	const subscription = stan.subscribe(
+		"ticket:created",
+		"orders-service-queue-group"
+	);
 
 	subscription.on("message", (msg: Message) => {
 		const data = msg.getData();
 
 		if (typeof data === "string") {
 			console.log(
-				`Received evet #${msg.getSequence()}, with data: ${data}`
+				`Received event #${msg.getSequence()}, with data: ${data}`
 			);
 		}
 	});
