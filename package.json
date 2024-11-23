@@ -18,5 +18,8 @@
 	"devDependencies": {
 		"del-cli": "^6.0.0",
 		"typescript": "^5.6.3"
+	},
+	"dependencies": {
+		"node-nats-streaming": "^0.3.2"
 	}
 }
