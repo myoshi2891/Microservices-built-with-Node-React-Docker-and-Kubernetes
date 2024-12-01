@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import { OrderStatus } from "@myoshizumitickets/common";
 import { TicketDoc } from "./ticket";
+export { OrderStatus };
 
-export { OrderStatus }; 
 interface OrderAttrs {
 	userId: string;
 	status: OrderStatus;
@@ -28,7 +28,7 @@ const orderSchema = new mongoose.Schema(
 			required: true,
 		},
 		status: {
-			status: String,
+			type: String,
 			required: true,
 			enum: Object.values(OrderStatus),
 			default: OrderStatus.Created,
