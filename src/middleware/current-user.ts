@@ -1,4 +1,4 @@
-import { NextFunction, Request, RequestHandler, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
 interface UserPayload {
@@ -14,7 +14,7 @@ declare global {
 	}
 }
 
-export const currentUser: RequestHandler = (
+export const currentUser = (
 	req: Request,
 	res: Response,
 	next: NextFunction
