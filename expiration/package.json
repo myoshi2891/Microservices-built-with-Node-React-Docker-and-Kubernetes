@@ -18,7 +18,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@myoshizumitickets/common": "^1.0.23",
+		"@myoshizumitickets/common": "^1.0.24",
 		"@types/bull": "^4.10.4",
 		"bull": "^4.16.4",
 		"node-nats-streaming": "^0.3.2",
