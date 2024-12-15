@@ -18,7 +18,7 @@ router.post(
 	[body("token").not().isEmpty(), body("orderId").not().isEmpty()],
 	validateRequest,
 	async (req: Request, res: Response) => {
-        const { token, orderId } = req.body;
+		const { token, orderId } = req.body;
 
 		const order = await Order.findById(orderId);
 
