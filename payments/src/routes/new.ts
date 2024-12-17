@@ -36,9 +36,9 @@ router.post(
 		}
 
 		await stripe.charges.create({
-			source: token,
-			amount: order.price * 100,
 			currency: "usd",
+			amount: order.price * 100,
+			source: token,
 		});
 
 		res.status(201).send({ sucess: true });
